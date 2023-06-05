@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title> File upload </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/css/file_upload.css">
+    </head>
+    <body>
+        <div class="file-upload-div">
+            <h1> file upload </h1>
+            <br>
+            <form class="file-upload-form" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" multiple>
+                <input class="btn btn-default" type="submit" value="upload">
+            </form>
+            <p> Upload status: {{ upload_complete }} </p>
+        </div>
+    </body>
+</html>

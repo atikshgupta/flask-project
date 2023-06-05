@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title> Login page </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/css/login.css">
+    </head>
+    <body>
+        <div class="login-div">
+            <h1> login </h1>
+            <br>
+            <form action="" method="post">
+                <input type="text" placeholder="username..." name="username" value="">
+                <input type="text" placeholder="password..." name="password" value="">
+                <input class="btn btn-default" type="submit" value="Login">
+            </form>
+            {% if error %}
+                <p class="error"><strong>Error: </strong> {{ error }} </p>
+            {% endif %}
+        </div>
+    </body>
+</html>

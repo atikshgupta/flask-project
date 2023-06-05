@@ -1,0 +1,17 @@
+.login-div {
+    /* centering form in middle of page */
+    background-color: grey;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -400px;
+    width: 800px;
+    height: 400px;
+
+    /* centering text elements */
+    text-align: center;
+
+    /* border styles */
+    border-radius: 50px;
+}
