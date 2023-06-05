@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title> Uploaded files data </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/css/uploads.css">
+    </head>
+    <body>
+        <div class="generated-appeal-div">
+            {% for data_point in all_data %}
+                <p> Form data: {{ data_point }}</p>
+            {% endfor %}
+        </div>
+    </body>
+</html>

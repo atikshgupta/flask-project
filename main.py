@@ -73,16 +73,43 @@ def uploads():
 
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import os
+import openai
+openai.api_key = "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" #os.getenv("OPENAI_API_KEY")
+
+
+
+
+
+
 @app.route("/genform", methods=["POST", "GET"])
 def genform():
     if request.method == "POST":
+        global name, age, all_data
+        name = request.form.get("fname")
+        
+        print("name is: " + name)
+        age = request.form.get("age")
+        all_data = [name, age]
+        #response = generate_GPT_appeal(form_prompt)
         return redirect(url_for("appeal_display"))
     return render_template("genform.html")
 
 
+
+def generate_GPT_appeal(prompt):
+    completion = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "user", "content": prompt}
+            ]
+        )
+    return completion.choices[0].message["content"]
+
+
 @app.route("/appeal_display")
 def appeal_display():
-    return "appeal goes here"
+    return render_template("appeal_display.html", all_data=all_data)
 
 
 
