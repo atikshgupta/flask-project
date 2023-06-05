@@ -75,7 +75,7 @@ def uploads():
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 import os
 import openai
-openai.api_key = "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" #os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY") #os.getenv("OPENAI_API_KEY")
 
 
 
@@ -85,17 +85,26 @@ openai.api_key = "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" #os.geten
 @app.route("/genform", methods=["POST", "GET"])
 def genform():
     if request.method == "POST":
-        global personal_details, nett_income, prompt_dict
+        global personal_details, nett_income, marital_status, family_support, presenting_problems, prompt_dict, response
 
         personal_details = request.form.get("personal_details")
         nett_income = request.form.get("nett_income")
+        marital_status = request.form.get("marital_status")
+        family_support = request.form.get("family_support")
+        presenting_problems = request.form.get("presenting_problems")
 
         prompt_dict = {
             "Personal details": personal_details,
             "Nett income": nett_income,
-
+            "Marital status": marital_status,
+            "Family support": family_support,
+            "Presenting problems": presenting_problems
         }
-        #response = generate_GPT_appeal(form_prompt)
+
+        form_prompt = "Write a crowdfunding appeal with the following information: "
+        for key in list(prompt_dict.keys()):
+            form_prompt += f"{key}: {prompt_dict[key]}"
+        response = generate_GPT_appeal(form_prompt)
         return redirect(url_for("appeal_display"))
     return render_template("genform.html")
 
@@ -113,7 +122,7 @@ def generate_GPT_appeal(prompt):
 
 @app.route("/appeal_display")
 def appeal_display():
-    return render_template("appeal_display.html", prompt_dict=prompt_dict)
+    return render_template("appeal_display.html", prompt_dict=prompt_dict, generated_appeal=response)
 
 
 
