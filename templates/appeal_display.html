@@ -6,8 +6,8 @@
     </head>
     <body>
         <div class="generated-appeal-div">
-            {% for data_point in all_data %}
-                <p> Form data: {{ data_point }}</p>
+            {% for key in prompt_dict.keys()%}
+                <p> {{ key }}: {{ prompt_dict[key] }}</p>
             {% endfor %}
         </div>
     </body>
