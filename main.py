@@ -83,7 +83,24 @@ openai.api_key = os.getenv("OPENAI_API_KEY") #os.getenv("OPENAI_API_KEY")
 
 
 
+@app.route("/genfile", methods=["POST", "GET"])
+def genfile():
+    if request.method == "POST":
+        print("ABC: ", request.files)
+        if "file" not in request.files:
+            flash("No file part uploaded")
+            return redirect(request.url)
+        files = request.files.getlist("file")
 
+        for file in files:
+            if file.filename == "":
+                flash("No selected file")
+                return redirect(request.url)
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+        return redirect(url_for("uploads"))
+    return render_template("genfile.html")
 
 
 @app.route("/genform", methods=["POST", "GET"])
