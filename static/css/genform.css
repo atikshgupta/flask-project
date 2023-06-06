@@ -1,0 +1,13 @@
+.appeal-form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form-button-div {
+    text-align: center;
+}
+
+.form-button {
+    background-color: lightblue;
+}

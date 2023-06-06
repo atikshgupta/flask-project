@@ -85,20 +85,25 @@ openai.api_key = os.getenv("OPENAI_API_KEY") #os.getenv("OPENAI_API_KEY")
 @app.route("/genform", methods=["POST", "GET"])
 def genform():
     if request.method == "POST":
-        global personal_details, nett_income, marital_status, family_support, presenting_problems, prompt_dict, response
+        global personal_details, nett_income, marital_status, family_support, presenting_problems, additional_factors, solutions_tried, prompt_dict, response
 
         personal_details = request.form.get("personal_details")
         nett_income = request.form.get("nett_income")
         marital_status = request.form.get("marital_status")
         family_support = request.form.get("family_support")
         presenting_problems = request.form.get("presenting_problems")
+        additional_factors = request.form.get("additional_factors")
+        solutions_tried = request.form.get("solutions_tried")
 
         prompt_dict = {
             "Personal details": personal_details,
             "Nett income": nett_income,
             "Marital status": marital_status,
             "Family support": family_support,
-            "Presenting problems": presenting_problems
+            "Presenting problems": presenting_problems,
+            "Additional factors": additional_factors,
+            "Solutions tried": solutions_tried
+
         }
 
         form_prompt = "Write a crowdfunding appeal with the following information: "

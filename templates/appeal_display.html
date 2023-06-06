@@ -6,9 +6,11 @@
     </head>
     <body>
         <div class="generated-appeal-div">
+            <h1> Prompt details </h1>
             {% for key in prompt_dict.keys()%}
                 <p> {{ key }}: {{ prompt_dict[key] }}</p>
             {% endfor %}
+            <h1> GPT-generated appeal </h1>
             <p> {{ generated_appeal }} </p>
         </div>
     </body>
