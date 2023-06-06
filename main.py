@@ -16,6 +16,10 @@ app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = "V3]`AAq#{^t=(99"
 
+@app.route("/")
+def index():
+    return redirect(url_for("genform"))
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     valid_users = {"admin1": "123"}
