@@ -8,17 +8,19 @@ from werkzeug.utils import secure_filename
 from flask import flash
 from flask import send_from_directory
 import os
+from models import bp
 
 UPLOAD_FOLDER = "/Users/atikshgupta/Desktop/flask-project/uploaded_files"
 ALLOWED_EXTENSIONS = {"txt", "pdf", "png", "jpg", "jpeg"}
 
 app = Flask(__name__)
+app.register_blueprint(bp)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = "V3]`AAq#{^t=(99"
 
 @app.route("/")
 def index():
-    return redirect(url_for("genform"))
+    return redirect(url_for("upload"))
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
