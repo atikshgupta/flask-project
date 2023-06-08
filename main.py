@@ -11,7 +11,7 @@ import os
 from models import process, response_page
 
 UPLOAD_FOLDER = "/Users/atikshgupta/Desktop/flask-project/uploaded_files"
-ALLOWED_EXTENSIONS = {"txt", "pdf", "png", "jpg", "jpeg"}
+ALLOWED_EXTENSIONS = {"txt", "pdf"}
 
 app = Flask(__name__)
 app.register_blueprint(response_page)

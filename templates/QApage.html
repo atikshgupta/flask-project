@@ -3,17 +3,27 @@
         <title> QA page </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="static/css/QApage.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     </head>
     <div class="QA-div">
         <div id="QA-sidebar">
-            Sidebar
+            <h2 id="loaded-docs-header"> loaded documents </h2>
+            {% for doc_name in loaded_documents %}
+                <div class="loaded-docs-div">
+                    <h3> {{ doc_name }} </h3>
+                </div>
+            {% endfor %}
         </div>
         <div id="QA-bigbox">
             <div id="QA-chatbox">
                 <div id="QA-userbox">
+                    <img id="user-icon" src="static/user.png" width="50" height="50">
                     <p> {{ conversation[-2] }} </p>
                 </div>
                 <div id="QA-botbox">
+                    <img id="user-icon" src="static/bot.png" width="50" height="50">
                     <p> {{ conversation[-1] }} </p>
                 </div>
                 <div id="QA-userprompt">
@@ -25,7 +35,13 @@
             </div>
         </div>
         <div id="QA-right">
-            Right
+            <h2 id="right-bar-header"> actions </h2>
+            <form id="right-addfile-form">
+                <input class="right-button" type="submit" value="add file" name="right-addfile" formmethod="post">
+            </form>
+            <form id="right-deletefile-form">
+                <input class="right-button" type="submit" value="delete file" name="right-deletefile" formmethod="post">
+            </form>
         </div>
 
     </div>
