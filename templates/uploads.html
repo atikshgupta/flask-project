@@ -4,5 +4,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="static/css/uploads.css">
     </head>
+    <body>
+        {% for key in file_ext_dict.keys() %}
+            <p> {{ key }}: {{ file_ext_dict[key] }} </p>
+        {% endfor %}
+        <form action="bot_response">
+            <input type="submit" value="go to chat page">
+        </form>
+    </body>
     
 </html>

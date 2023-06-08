@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title> QA page </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/css/QApage.css">
+    </head>
+    <div class="QA-div">
+        <div id="QA-sidebar">
+            Sidebar
+        </div>
+        <div id="QA-bigbox">
+            <div id="QA-chatbox">
+                <div id="QA-userbox">
+                    <p> {{ conversation[-2] }} </p>
+                </div>
+                <div id="QA-botbox">
+                    <p> {{ conversation[-1] }} </p>
+                </div>
+                <div id="QA-userprompt">
+                    <form id="QA-userform">
+                        <input id="QA-userinput" type="text" placeholder="Write prompt here..." name="user-prompt">
+                        <input id="QA-usersubmit" type="submit" value="submit" name="btn" formmethod="post">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="QA-right">
+            Right
+        </div>
+
+    </div>
+</html>

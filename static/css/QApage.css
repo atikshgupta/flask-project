@@ -1,0 +1,100 @@
+.QApage-div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#QA-sidebar, #QA-right {
+    float: left;
+    margin: 0px;
+    width: 20%;
+    text-align: center;
+    height: 100%;
+    background-color: gray;
+}
+
+#QA-bigbox {
+    /* alignment on page */
+    float: left;
+    margin: 0px;
+    width: 60%;
+    text-align: center;
+    height: 100%;
+
+    /* styling */
+    background-color: lightgray;
+
+    /* setup for chatbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#QA-chatbox {
+    /* styling */
+    background-color: white;
+    width: 100%;
+    height: 90%;
+    margin-top: 10%;
+
+
+    /* setup for userprompt */
+
+}
+
+#QA-userbox {
+    height: 40%;
+    background-color: lightgreen;
+    text-align: left;
+    padding-left: 120px;
+    margin: 0;
+    padding-top: 20px;
+    overflow: scroll;
+}
+
+#user-icon {
+    margin-left: -95px;
+}
+
+#QA-botbox {
+    height: 40%;
+    background-color: lightblue;
+    text-align: left;
+    padding-left: 120px;
+    padding-top: 20px;
+    margin-top: 0px;
+    overflow: scroll;
+}
+
+#QA-userprompt {
+    /* styling */
+    position: fixed;
+    width: 688px;
+    height: 41px;
+    margin-left: 10%;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    /* positioning */
+    margin-left: 81px;   
+    margin-top: 30px; 
+}
+
+#QA-userinput {
+    /* styling */
+    width: 90%;
+    height: 100%;
+    border-radius: 10px;
+    font-size: large;
+    padding-left: 5px;
+    float: left;
+}
+
+#QA-usersubmit {
+    /* styling */
+    width: 10%;
+    height: 100%;
+    border-radius: 10px;
+}

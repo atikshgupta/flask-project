@@ -8,13 +8,13 @@ from werkzeug.utils import secure_filename
 from flask import flash
 from flask import send_from_directory
 import os
-from models import bp
+from models import process, response_page
 
 UPLOAD_FOLDER = "/Users/atikshgupta/Desktop/flask-project/uploaded_files"
 ALLOWED_EXTENSIONS = {"txt", "pdf", "png", "jpg", "jpeg"}
 
 app = Flask(__name__)
-app.register_blueprint(bp)
+app.register_blueprint(response_page)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = "V3]`AAq#{^t=(99"
 
@@ -65,6 +65,7 @@ def uploads():
     file_ext_dict = {}
     ext_counts = {}
     uploaded_files = os.listdir("/Users/atikshgupta/Desktop/flask-project/uploaded_files")
+    processed_text = None
     for file_name in uploaded_files:
         if file_name not in file_ext_dict:
             file_ext_dict[file_name] = file_name.split('.')[-1]
@@ -75,7 +76,9 @@ def uploads():
         else:
             ext_counts[extension] = 1
     
-    return file_ext_dict
+    return render_template("uploads.html", file_ext_dict=file_ext_dict)
+
+
 
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -158,4 +161,4 @@ def appeal_display():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(port=5000)
