@@ -17,6 +17,7 @@
             {% endfor %}
         </div>
         <div id="QA-bigbox">
+            <h2 id="QA-title"> {{ chat_mode }} </h2>
             <div id="QA-chatbox">
                 <div id="QA-userbox">
                     <img id="user-icon" src="static/user.png" width="50" height="50">
@@ -37,10 +38,13 @@
         <div id="QA-right">
             <h2 id="right-bar-header"> actions </h2>
             <form id="right-addfile-form">
-                <input class="right-button" type="submit" value="add file" name="right-addfile" formmethod="post">
+                <input class="standard-button" type="submit" value="add file" name="right-addfile" formmethod="post">
             </form>
             <form id="right-deletefile-form">
-                <input class="right-button" type="submit" value="delete file" name="right-deletefile" formmethod="post">
+                <input class="standard-button" type="submit" value="delete file" name="right-deletefile" formmethod="post">
+            </form>
+            <form id="right-chatmode-form">
+                <input class="standard-button" type="submit" value="chat mode" name="right-chatmode" formmethod="post">
             </form>
         </div>
 

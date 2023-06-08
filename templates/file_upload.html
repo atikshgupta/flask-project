@@ -8,11 +8,10 @@
         <div class="file-upload-div">
             <h1> file upload </h1>
             <br>
-            <form class="file-upload-form" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" multiple>
-                <input class="btn btn-default" type="submit" value="upload">
+            <form id="file-upload-form" method="post" enctype="multipart/form-data">
+                <input class="standard-button-upload" type="file" name="file" multiple>
+                <input class="standard-button-upload" type="submit" value="upload">
             </form>
-            <p> Upload status: {{ upload_complete }} </p>
         </div>
     </body>
 </html>

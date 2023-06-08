@@ -6,6 +6,8 @@ from flask import request
 from flask import redirect
 from flask import url_for
 import os
+import openai
+
 
 response_page = Blueprint("response_page", __name__)
 
@@ -28,8 +30,22 @@ def process(prompt):
     return response
 
 
+def chatmode_process(prompt):
+    openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": "Who won the world series in 2020?"},
+            {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
+            {"role": "user", "content": "Where was it played?"}
+        ]
+)
+
+
+
 @response_page.route("/bot_response", methods=["POST", "GET"])
 def bot_response():
+    chat_mode = "docs mode"
     loaded_documents = os.listdir("/Users/atikshgupta/Desktop/flask-project/uploaded_files")
     for i, full_filename in enumerate(loaded_documents):
         loaded_documents[i] = full_filename.split(".")[0]
@@ -43,6 +59,10 @@ def bot_response():
             conversation.append(process(request.form.get("user-prompt")))
         elif "right-addfile" in request.form:
             return redirect(url_for("upload"))
-    return render_template("QApage.html", conversation=conversation, loaded_documents=loaded_documents)
+        elif "right-chatmode" in request.form:
+            pass
+
+        
+    return render_template("QApage.html", conversation=conversation, loaded_documents=loaded_documents, chat_mode=chat_mode)
 
 # THE AI IS STUPID, make it general knowledge + docs, not just docs, it can't even analyse or evaluate the docs so it's kinda useless

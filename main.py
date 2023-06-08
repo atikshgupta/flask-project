@@ -41,7 +41,6 @@ def allowed_file(filename):
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
-    upload_complete = None
     if request.method == "POST":
         if "file" not in request.files:
             flash("No file part uploaded")
@@ -56,7 +55,7 @@ def upload():
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
         return redirect(url_for("uploads"))
-    return render_template("file_upload.html", upload_complete=upload_complete)
+    return render_template("file_upload.html")
 
 
 
