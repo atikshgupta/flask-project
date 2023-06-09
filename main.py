@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 from flask import flash
 from flask import send_from_directory
 import os
-from models import process, response_page
+from models import get_documents_text, response_page
 
 UPLOAD_FOLDER = "/Users/atikshgupta/Desktop/flask-project/uploaded_files"
 ALLOWED_EXTENSIONS = {"txt", "pdf"}

@@ -17,7 +17,7 @@
             {% endfor %}
         </div>
         <div id="QA-bigbox">
-            <h2 id="QA-title"> {{ chat_mode }} </h2>
+            <h2 id="QA-title"> {{ mode }} </h2>
             <div id="QA-chatbox">
                 <div id="QA-userbox">
                     <img id="user-icon" src="static/user.png" width="50" height="50">
@@ -45,6 +45,9 @@
             </form>
             <form id="right-chatmode-form">
                 <input class="standard-button" type="submit" value="chat mode" name="right-chatmode" formmethod="post">
+            </form>
+            <form id="right-docsmode-form">
+                <input class="standard-button" type="submit" value="docs mode" name="right-docsmode" formmethod="post">
             </form>
         </div>
 
